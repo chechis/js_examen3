@@ -25,7 +25,7 @@ var GestorEstudiantes = {
 
             if (codigo.val() && nombre.val() && nota.val()) {
                 if (parseInt(codigo.val()) > 0) {
-                    if (parseFloat(nota.val()) >= 0 && parseFloat(nota.val()) <= 5.0) {
+                    if (parseFloat(nota.val()) >= 0 && parseFloat(nota.val()) <= 100.0) {
                         if (!GestorEstudiantes.estudianteExiste(codigo.val())) {
                             var nuevoEstudiante = new Estudiante(parseInt(codigo.val()), nombre.val(), parseFloat(nota.val()));
                             localStorage.setItem(codigo.val(), JSON.stringify(nuevoEstudiante));
@@ -65,7 +65,7 @@ var GestorEstudiantes = {
                             alert('Un estudiante con el código ' + String(codigo.val()) + ' ya existe.');
                         }
                     } else {
-                        alert('La nota debe estar entre 0.0 y 5.0');
+                        alert('La nota debe estar entre 0.0 y 100.0');
                     }
                 } else {
                     alert('El código debe ser positivo');
